@@ -12,4 +12,8 @@ public class member {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Mid;
 
+    private String name;
+
+    private 
+
 }
