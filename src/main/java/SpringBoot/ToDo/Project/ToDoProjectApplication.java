@@ -1,5 +1,6 @@
 package SpringBoot.ToDo.Project;
 
+import SpringBoot.ToDo.Project.DataAccessLayer.memberRepository;
 import SpringBoot.ToDo.Project.DataAccessLayer.todoRepository;
 import SpringBoot.ToDo.Project.Models.member;
 import SpringBoot.ToDo.Project.Models.todo;
@@ -22,6 +23,12 @@ public class ToDoProjectApplication implements CommandLineRunner {
 		SpringApplication.run(ToDoProjectApplication.class, args);
 	}
 
+	@Autowired
+	private memberRepository mRepository;
+
+	@Autowired
+	private todoRepository tRepository;
+
 	@Override
 	public void run(String... args) throws Exception {
 
@@ -29,7 +36,7 @@ public class ToDoProjectApplication implements CommandLineRunner {
 		member m2 = new member("yash","cs");
 		member m3 = new member("rishu","robotics");
 
-		
+		mRepository.save(m1);
 
 		todo t1 = new todo("javascript","cool laguage",System.currentTimeMillis(),System.currentTimeMillis(),"just do simple test",Arrays.asList(m1,m2));
 		todo t2= new todo("java","awesome thing",System.currentTimeMillis(),System.currentTimeMillis(),"simple test",Arrays.asList(m2,m3));
