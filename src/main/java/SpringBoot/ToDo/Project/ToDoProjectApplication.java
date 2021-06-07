@@ -37,11 +37,32 @@ public class ToDoProjectApplication implements CommandLineRunner {
 		member m3 = new member("rishu","robotics");
 
 		mRepository.save(m1);
+		mRepository.save(m2);
+		mRepository.save(m3);
 
-		todo t1 = new todo("javascript","cool laguage",System.currentTimeMillis(),System.currentTimeMillis(),"just do simple test",Arrays.asList(m1,m2));
-		todo t2= new todo("java","awesome thing",System.currentTimeMillis(),System.currentTimeMillis(),"simple test",Arrays.asList(m2,m3));
 
 
+		todo t1 = new todo("javascript","cool laguage",System.currentTimeMillis(),System.currentTimeMillis(),"just do simple test");
+		todo t2= new todo("java","awesome thing",System.currentTimeMillis(),System.currentTimeMillis(),"simple test");
+
+
+
+		tRepository.save(t1);
+		tRepository.save(t2);
+
+//		m1.setTodo(t1);
+//		m2.setTodo(t2);
+
+		t1.setMember(Arrays.asList(m1,m2,m3));
+//		t1.setMember(m2);
+//		t1.setMember(m3);
+
+		t2.setMember(Arrays.asList(m2,m3));
+//		t2.setMember(m2);
+//		t2.setMember(m3);
+
+		tRepository.save(t1);
+		tRepository.save(t2);
 
 
 

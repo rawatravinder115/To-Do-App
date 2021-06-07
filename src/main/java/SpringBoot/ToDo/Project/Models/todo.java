@@ -21,11 +21,11 @@ public class todo {
     @Column(name = "Description",columnDefinition = "text")
     private String desc;
 
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CreatedDate",nullable = false)
     private long createdDt;
 
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UpdatedAt")
     @LastModifiedDate
     private long lastupdate;
@@ -37,7 +37,11 @@ public class todo {
     private String Act;
 
     @Column(name = "Member")
-    @OneToMany(mappedBy = "todo",cascade = CascadeType.ALL)
+    @JoinTable(name = "to_mem",
+                joinColumns ={@JoinColumn(name ="todo_")},
+                inverseJoinColumns = {@JoinColumn(name = "member")}
+    )
+    @OneToMany(cascade = { CascadeType.ALL})
     private List<member> member= new ArrayList<>();
 
 
@@ -53,7 +57,13 @@ public class todo {
         this.member = member;
     }
 
-
+    public todo(String name, String desc, long createdDt, long lastupdate, String act) {
+        this.name = name;
+        this.desc = desc;
+        this.createdDt = createdDt;
+        this.lastupdate = lastupdate;
+        Act = act;
+    }
 
     public int getId() {
         return tdid;
@@ -84,20 +94,23 @@ public class todo {
     }
 
 
-    public long getCreatedDt() {
-        return createdDt;
-    }
-
-    public long getLastupdate() {
-        return lastupdate;
-    }
-
-
     public List<SpringBoot.ToDo.Project.Models.member> getMember() {
         return member;
     }
 
     public void setMember(List<SpringBoot.ToDo.Project.Models.member> member) {
+
+//        for(member m : member){
+//            member.add(m);
+//        }
         this.member = member;
+    }
+
+    public void setCreatedDt(long createdDt) {
+        this.createdDt = createdDt;
+    }
+
+    public void setLastupdate(long lastupdate) {
+        this.lastupdate = lastupdate;
     }
 }

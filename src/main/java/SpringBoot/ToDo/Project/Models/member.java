@@ -15,10 +15,16 @@ public class member {
     @Column(name = "Department")
     private String dept;
 
-    @ManyToOne()
+    @ManyToOne(fetch =FetchType.LAZY,cascade = CascadeType.ALL)
     private todo todo;
 
     public member() {
+    }
+
+    public member(String name, String dept, SpringBoot.ToDo.Project.Models.todo todo) {
+        this.name = name;
+        this.dept = dept;
+        this.todo = todo;
     }
 
     public member(String name, String dept) {
@@ -40,5 +46,13 @@ public class member {
 
     public void setDept(String dept) {
         this.dept = dept;
+    }
+
+    public SpringBoot.ToDo.Project.Models.todo getTodo() {
+        return todo;
+    }
+
+    public void setTodo(SpringBoot.ToDo.Project.Models.todo todo) {
+        this.todo = todo;
     }
 }
