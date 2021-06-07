@@ -1,12 +1,9 @@
 package SpringBoot.ToDo.Project.Models;
 
-import jdk.jfr.Timestamp;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -26,12 +23,12 @@ public class todo {
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CreatedDate",nullable = false)
-    private Date createdDt;
+    private long createdDt;
 
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UpdatedAt")
     @LastModifiedDate
-    private Date lastupdate;
+    private long lastupdate;
 
 
 
@@ -47,7 +44,7 @@ public class todo {
     public todo() {
     }
 
-    public todo(String name, String desc, Date createdDt, Date lastupdate, String act, List<SpringBoot.ToDo.Project.Models.member> member) {
+    public todo(String name, String desc, long createdDt, long lastupdate, String act, List<SpringBoot.ToDo.Project.Models.member> member) {
         this.name = name;
         this.desc = desc;
         this.createdDt = createdDt;
@@ -55,6 +52,8 @@ public class todo {
         Act = act;
         this.member = member;
     }
+
+
 
     public int getId() {
         return tdid;
@@ -85,11 +84,11 @@ public class todo {
     }
 
 
-    public Date getCreatedDt() {
+    public long getCreatedDt() {
         return createdDt;
     }
 
-    public Date getLastupdate() {
+    public long getLastupdate() {
         return lastupdate;
     }
 
