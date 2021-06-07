@@ -1,6 +1,7 @@
 package SpringBoot.ToDo.Project;
 
 import SpringBoot.ToDo.Project.DataAccessLayer.todoRepository;
+import SpringBoot.ToDo.Project.Models.member;
 import SpringBoot.ToDo.Project.Models.todo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -24,8 +25,11 @@ public class ToDoProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		todo t = new todo("java","this is very great language","most amazing",""/*new ArrayList<String>(Arrays.asList("ravinder", "yash"*/)));
-		todo t1=new todo("javascript","this is very cool language","pretty good",""/*new ArrayList<String>(Arrays.asList("yash"))*/);
+		member m1 = new member("ravinder","ice");
+		member m2 = new member("yash","cs");
+		member m3 = new member("rishu","robotics");
+
+		todo t1 = new todo("");
 
 		repository.save(t);
 		repository.save(t1);

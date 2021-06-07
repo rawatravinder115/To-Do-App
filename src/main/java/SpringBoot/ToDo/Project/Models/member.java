@@ -1,9 +1,6 @@
 package SpringBoot.ToDo.Project.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class member {
@@ -12,8 +9,36 @@ public class member {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int Mid;
 
+    @Column(name = "Name")
     private String name;
 
-    private 
+    @Column(name = "Department")
+    private String dept;
 
+    @ManyToOne()
+    private todo todo;
+
+    public member() {
+    }
+
+    public member(String name, String dept) {
+        this.name = name;
+        this.dept = dept;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDept() {
+        return dept;
+    }
+
+    public void setDept(String dept) {
+        this.dept = dept;
+    }
 }

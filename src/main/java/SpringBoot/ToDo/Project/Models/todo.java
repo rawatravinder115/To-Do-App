@@ -1,7 +1,12 @@
 package SpringBoot.ToDo.Project.Models;
 
+import jdk.jfr.Timestamp;
+import org.springframework.data.annotation.LastModifiedBy;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -11,6 +16,7 @@ public class todo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int tdid;
+
     @Column(name = "Project")
     private String name;
 
@@ -18,26 +24,40 @@ public class todo {
     @Column(name = "Description",columnDefinition = "text")
     private String desc;
 
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name="CreatedDate",nullable = false)
+    private Date createdDt;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "UpdatedAt")
+    @LastModifiedDate
+    private Date lastupdate;
+
+
+
     @Lob
     @Column(name = "Activity",columnDefinition = "text")
     private String Act;
 
     @Column(name = "Member")
-    private List<String> member= new ArrayList<>();
+    @OneToMany(mappedBy = "todo",cascade = CascadeType.ALL)
+    private List<member> member= new ArrayList<>();
 
 
     public todo() {
     }
 
-    public todo(String name, String desc, String act, List<String> member) {
+    public todo(String name, String desc, Date createdDt, Date lastupdate, String act, List<SpringBoot.ToDo.Project.Models.member> member) {
         this.name = name;
         this.desc = desc;
+        this.createdDt = createdDt;
+        this.lastupdate = lastupdate;
         Act = act;
         this.member = member;
     }
 
     public int getId() {
-        return id;
+        return tdid;
     }
 
     public String getName() {
@@ -64,11 +84,21 @@ public class todo {
         Act = act;
     }
 
-    public List<String> getMember() {
+
+    public Date getCreatedDt() {
+        return createdDt;
+    }
+
+    public Date getLastupdate() {
+        return lastupdate;
+    }
+
+
+    public List<SpringBoot.ToDo.Project.Models.member> getMember() {
         return member;
     }
 
-    public void setMember(List<String> member) {
+    public void setMember(List<SpringBoot.ToDo.Project.Models.member> member) {
         this.member = member;
     }
 }
