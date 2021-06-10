@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-//@Table(name = " ")
+@Table(name = "ToDo")
 public class todo {
 
     @Id
@@ -37,25 +37,25 @@ public class todo {
     private String Act;
 
     @Column(name = "Member")
-    @JoinTable(name = "to_mem",
-                joinColumns ={@JoinColumn(name ="todo_")},
-                inverseJoinColumns = {@JoinColumn(name = "member")}
-    )
-    @OneToMany(cascade = { CascadeType.ALL})
+//    @JoinTable(name = "to_mem",
+//                joinColumns ={@JoinColumn(name ="todo_")},
+//                inverseJoinColumns = {@JoinColumn(name = "member")}
+//    )
+    @OneToMany(cascade = { CascadeType.ALL},mappedBy = "todo")
     private List<member> member= new ArrayList<>();
 
 
     public todo() {
     }
 
-    public todo(String name, String desc, long createdDt, long lastupdate, String act, List<SpringBoot.ToDo.Project.Models.member> member) {
-        this.name = name;
-        this.desc = desc;
-        this.createdDt = createdDt;
-        this.lastupdate = lastupdate;
-        Act = act;
-        this.member = member;
-    }
+//    public todo(String name, String desc, long createdDt, long lastupdate, String act, List<SpringBoot.ToDo.Project.Models.member> member) {
+//        this.name = name;
+//        this.desc = desc;
+//        this.createdDt = createdDt;
+//        this.lastupdate = lastupdate;
+//        Act = act;
+//        this.member = member;
+//    }
 
     public todo(String name, String desc, long createdDt, long lastupdate, String act) {
         this.name = name;
