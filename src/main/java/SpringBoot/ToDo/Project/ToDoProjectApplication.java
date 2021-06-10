@@ -53,13 +53,13 @@ public class ToDoProjectApplication implements CommandLineRunner {
 //		m1.setTodo(t1);
 //		m2.setTodo(t2);
 
-		t1.setMember(Arrays.asList(m1,m2,m3));
-//		t1.setMember(m2);
-//		t1.setMember(m3);
+//		t1.setMember(Arrays.asList(m1,m2,m3));
+		t1.setMember(new member(m2));
+		t1.setMember(m3);
 
-		t2.setMember(Arrays.asList(m2,m3));
-//		t2.setMember(m2);
-//		t2.setMember(m3);
+//		t2.setMember(Arrays.asList(m2,m3));
+		t2.setMember(m2);
+		t2.setMember(m3);
 
 		tRepository.save(t1);
 		tRepository.save(t2);

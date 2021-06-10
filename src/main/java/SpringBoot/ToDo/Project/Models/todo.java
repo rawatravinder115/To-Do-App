@@ -106,6 +106,11 @@ public class todo {
         this.member = member;
     }
 
+    public void addmember(member m){
+        member.add(m);
+        member.setMember();
+    }
+
     public void setCreatedDt(long createdDt) {
         this.createdDt = createdDt;
     }

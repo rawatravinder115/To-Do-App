@@ -32,6 +32,7 @@ public class member {
         this.dept = dept;
     }
 
+
     public String getName() {
         return name;
     }
