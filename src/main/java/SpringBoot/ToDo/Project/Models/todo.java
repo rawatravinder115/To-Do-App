@@ -92,24 +92,9 @@ public class todo {
     public void setAct(String act) {
         Act = act;
     }
+    
 
 
-    public List<SpringBoot.ToDo.Project.Models.member> getMember() {
-        return member;
-    }
-
-    public void setMember(List<SpringBoot.ToDo.Project.Models.member> member) {
-
-//        for(member m : member){
-//            member.add(m);
-//        }
-        this.member = member;
-    }
-
-    public void addmember(member m){
-        member.add(m);
-        member.setMember();
-    }
 
     public void setCreatedDt(long createdDt) {
         this.createdDt = createdDt;
