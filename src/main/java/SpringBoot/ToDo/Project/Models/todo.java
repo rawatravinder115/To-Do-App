@@ -11,7 +11,7 @@ import java.util.List;
 public class todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int tdid;
 
     @Column(name = "Project")
