@@ -70,9 +70,9 @@ public class ToDoProjectApplication implements CommandLineRunner {
 //		t2.setMember(m2);
 //		t2.setMember(m3);
 //
-//		mRepository.save(m1);
-//		mRepository.save(m2);
-//		mRepository.save(m3);
+		mRepository.save(m1);
+		mRepository.save(m2);
+		mRepository.save(m3);
 		tRepository.save(t1);
 		tRepository.save(t2);
 
