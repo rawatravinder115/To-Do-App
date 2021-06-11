@@ -38,8 +38,8 @@ public class todo {
 
     @Column(name = "Member")
 //    @JoinTable(name = "to_mem",
-//                joinColumns ={@JoinColumn(name ="todo_")},
-//                inverseJoinColumns = {@JoinColumn(name = "member")}
+//                joinColumns ={@JoinColumn(name ="todo_id")},
+//                inverseJoinColumns = {@JoinColumn(name = "member_id")}
 //    )
     @OneToMany(cascade = { CascadeType.ALL},mappedBy = "todo")
     private List<member> member= new ArrayList<>();

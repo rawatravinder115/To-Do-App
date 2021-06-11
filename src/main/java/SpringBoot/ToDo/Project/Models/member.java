@@ -16,6 +16,7 @@ public class member {
     private String dept;
 
     @ManyToOne(fetch =FetchType.LAZY,cascade = CascadeType.ALL)
+    @JoinColumn(name="todo_id")
     private todo todo;
 
     public member() {
