@@ -45,14 +45,14 @@ public class ToDoProjectApplication implements CommandLineRunner {
 		m1.setTodo(t1);
 		m2.setTodo(t2);
 		m3.setTodo(t1);
-////		m2.setTodo(t2);
+//		m2.setTodo(t2);
 //
 		t1.getMember().add(m1);
 		t1.getMember().add(m3);
 		t2.getMember().add(m2);
 //		t2.getMember().add(m3);
 
-//
+
 		mRepository.save(m1);
 		mRepository.save(m2);
 		mRepository.save(m3);
