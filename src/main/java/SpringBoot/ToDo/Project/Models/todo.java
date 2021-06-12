@@ -37,7 +37,7 @@ public class todo {
     private String Act;
 
     @Column(name = "Member")
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "todo")
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<member> member= new ArrayList<>();
 
 
