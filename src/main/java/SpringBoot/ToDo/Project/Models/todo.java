@@ -1,12 +1,9 @@
 package SpringBoot.ToDo.Project.Models;
 
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import javax.persistence.*;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -24,15 +21,14 @@ public class todo {
     @Column(name = "Description",columnDefinition = "text")
     private String desc;
 
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     @Column(name="CreatedDate",nullable = false)
-    @CreatedDate
-    private Date createdDt;
+    private long createdDt;
 
-    @Temporal(TemporalType.TIMESTAMP)
+//    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "UpdatedAt")
     @LastModifiedDate
-    private Date lastupdate;
+    private long lastupdate;
 
 
 
@@ -45,7 +41,7 @@ public class todo {
 //                joinColumns ={@JoinColumn(name ="todo_id")},
 //                inverseJoinColumns = {@JoinColumn(name = "member_id")}
 //    )
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "todo",fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<member> member= new ArrayList<>();
 
 
@@ -61,10 +57,10 @@ public class todo {
 //        this.member = member;
 //    }
 
-    public todo(String name, String desc, SimpleDateFormat formatter1, SimpleDateFormat formatter2, String act) {
+    public todo(String name, String desc, long createdDt, long lastupdate, String act) {
         this.name = name;
         this.desc = desc;
-        this.createdDt = formatter1.format(createdDt);
+        this.createdDt = createdDt;
         this.lastupdate = lastupdate;
         Act = act;
     }
@@ -110,11 +106,11 @@ public class todo {
 //        member.setodo(this);
     }
 
-    public void setCreatedDt(Date createdDt) {
+    public void setCreatedDt(long createdDt) {
         this.createdDt = createdDt;
     }
 
-    public void setLastupdate(Date lastupdate) {
+    public void setLastupdate(long lastupdate) {
         this.lastupdate = lastupdate;
     }
 }

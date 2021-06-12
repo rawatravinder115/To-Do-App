@@ -33,31 +33,31 @@ public class ToDoProjectApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
-		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
-		todo t1 = new todo("javascript","cool laguage",formatter,formatter,"just do simple test");
-//		todo t2= new todo("java","awesome thing",System.currentTimeMillis(),System.currentTimeMillis(),"simple test");
+		todo t1 = new todo("javascript","cool laguage",System.currentTimeMillis(),System.currentTimeMillis(),"just do simple test");
+		todo t2= new todo("java","awesome thing",System.currentTimeMillis(),System.currentTimeMillis(),"simple test");
 
-//		member m1 = new member("ravinder","ice");
-//		member m2 = new member("yash","cs");
-//		member m3 = new member("rishu","robotics");
+		member m1 = new member("ravinder","ice");
+		member m2 = new member("yash","cs");
+		member m3 = new member("rishu","robotics");
 //
 //		m1.setTodo(t1);
 //		m2.setTodo(t2);
 //		m3.setTodo(t1);
 ////		m2.setTodo(t2);
 //
-//		t1.getMember().add(m1);
-//		t1.getMember().add(m3);
-//		t2.getMember().add(m2);
+		t1.getMember().add(m1);
+		t1.getMember().add(m3);
+		t2.getMember().add(m2);
 //		t2.getMember().add(m3);
 
 //
-//		mRepository.save(m1);
-//		mRepository.save(m2);
-//		mRepository.save(m3);
-//		tRepository.save(t1);
-//		tRepository.save(t2);
+		mRepository.save(m1);
+		mRepository.save(m2);
+		mRepository.save(m3);
+		tRepository.save(t1);
+		tRepository.save(t2);
 
 
 
