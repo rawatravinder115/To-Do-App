@@ -42,9 +42,9 @@ public class ToDoProjectApplication implements CommandLineRunner {
 		member m2 = new member("yash","cs");
 		member m3 = new member("rishu","robotics");
 //
-//		m1.setTodo(t1);
-//		m2.setTodo(t2);
-//		m3.setTodo(t1);
+		m1.setTodo(t1);
+		m2.setTodo(t2);
+		m3.setTodo(t1);
 ////		m2.setTodo(t2);
 //
 		t1.getMember().add(m1);

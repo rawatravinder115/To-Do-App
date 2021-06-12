@@ -1,5 +1,7 @@
 package SpringBoot.ToDo.Project.Models;
 
+import org.hibernate.engine.profile.Fetch;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +17,7 @@ public class member {
     @Column(name = "Department")
     private String dept;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,fetch= FetchType.LAZY)
 //    @JoinColumn(name="todo_id")
     private todo todo;
 

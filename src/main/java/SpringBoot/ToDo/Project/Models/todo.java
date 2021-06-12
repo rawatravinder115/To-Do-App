@@ -37,11 +37,7 @@ public class todo {
     private String Act;
 
     @Column(name = "Member")
-//    @JoinTable(name = "to_mem",
-//                joinColumns ={@JoinColumn(name ="todo_id")},
-//                inverseJoinColumns = {@JoinColumn(name = "member_id")}
-//    )
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "todo")
     private List<member> member= new ArrayList<>();
 
 
